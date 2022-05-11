@@ -7,7 +7,7 @@ AC_CONFIG_SRCDIR([src/nosys.c])
 AC_CONFIG_HEADERS([src/config.h])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([m4])
-AM_INIT_AUTOMAKE([foreign -Wall -Werror dist-bzip2 dist-xz subdir-objects])
+AM_INIT_AUTOMAKE([foreign -Wall -Werror dist-bzip2 dist-xz dist-zstd subdir-objects])
 AM_PROG_AR
 LT_INIT
 AM_SILENT_RULES([yes])
