@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+readonly GIT_DIR="$(git rev-parse --git-dir)"
+
+if [[ -f "$GIT_DIR/hooks/pre-commit.sample" ]] && ! [[ -f "$GIT_DIR/hooks/pre-commit" ]]; then
+    cp "$GIT_DIR/hooks/pre-commit.sample" "$GIT_DIR/hooks/pre-commit"
+    chmod +x "$GIT_DIR/hooks/pre-commit"
+    echo "Activated pre-commit hook."
+    git config core.whitespace tab-in-indent,trailing-space
+    echo "TABs are forbidden."
+fi
+
+autoreconf --install
